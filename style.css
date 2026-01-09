@@ -1,0 +1,120 @@
+:root {
+    --bg-color: #050505;
+    --accent-color: #80d8ff; /* 澄んだ水色 */
+    --text-main: #ffffff;
+    --text-sub: rgba(255, 255, 255, 0.5);
+    --border-color: rgba(128, 216, 255, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: 'Montserrat', 'Noto Serif JP', serif;
+    overflow-x: hidden;
+    line-height: 1.8;
+}
+
+/* 背景にうっすら水色のグラデーションを配置 */
+.bg-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 10% 10%, rgba(128, 216, 255, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 90% 90%, rgba(128, 216, 255, 0.05) 0%, transparent 50%);
+    z-index: -1;
+}
+
+header {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-title {
+    font-size: clamp(1.2rem, 4vw, 2rem);
+    font-weight: 200;
+    letter-spacing: 0.5em;
+    text-indent: 0.5em;
+    color: var(--text-main);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 20px;
+}
+
+main {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 20px 100px;
+}
+
+.card {
+    margin-bottom: 150px; /* スクロール時の余白を広く取ってシンプルさを強調 */
+}
+
+.category {
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    color: var(--accent-color);
+    display: block;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+
+.id {
+    font-size: 0.9rem;
+    color: var(--text-sub);
+    margin-bottom: 20px;
+}
+
+.links, .music-links {
+    display: flex;
+    gap: 20px;
+}
+
+a {
+    color: var(--text-main);
+    text-decoration: none;
+    font-size: 0.8rem;
+    border: 1px solid var(--border-color);
+    padding: 8px 20px;
+    transition: all 0.4s ease;
+}
+
+a:hover {
+    background: var(--accent-color);
+    color: var(--bg-color);
+    border-color: var(--accent-color);
+}
+
+footer {
+    text-align: center;
+    padding: 50px;
+    font-size: 0.7rem;
+    color: var(--text-sub);
+}
+
+/* アニメーション用 */
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 1s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
